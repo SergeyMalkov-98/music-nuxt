@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?nvebxz');
-  src:  url('fonts/icomoon.eot?nvebxz#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?nvebxz') format('truetype'),
-    url('fonts/icomoon.woff?nvebxz') format('woff'),
-    url('fonts/icomoon.svg?nvebxz#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?knbr1k');
+  src:  url('fonts/icomoon.eot?knbr1k#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?knbr1k') format('truetype'),
+    url('fonts/icomoon.woff?knbr1k') format('woff'),
+    url('fonts/icomoon.svg?knbr1k#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,19 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-playlist:before {
+  content: "\e904";
+}
+.icon-favorite:before {
+  content: "\e906";
+}
+.icon-radio:before {
+  content: "\e907";
+}
 .icon-clock:before {
   content: "\e900";
-  color: #fff;
 }
 .icon-home:before {
   content: "\e901";
-  color: #fff;
 }
 .icon-search:before {
   content: "\e902";
-  color: #fff;
 }
 .icon-setting:before {
   content: "\e903";
-  color: #fff;
 }

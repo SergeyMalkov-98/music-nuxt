@@ -1,6 +1,6 @@
 <template>
   <div class="side-bar">
-    <i class="icon-search"></i>
+    <i class="icon-favorite"></i>
   </div>
 </template>
 
