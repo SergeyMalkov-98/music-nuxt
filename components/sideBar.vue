@@ -1,12 +1,73 @@
 <template>
   <div class="side-bar">
-    <i class="icon-favorite"></i>
+    <div class="side-bar__logo">
+      <img src="@/static/logoWithText.svg" />
+    </div>
+    <div class="side-bar__items">
+      <div class="side-bar__carriage" ref="carriageElem" />
+      <SideBarItem
+        v-for="item in sideBarItems"
+        :sideBarItem="item"
+        :key="item.id"
+        :carriage-handler="carriageHandler"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import SideBarItem from "@/components/sideBarItem.vue";
+import { ref } from "vue";
+
 export default {
   name: "SideBar",
+  components: {
+    SideBarItem,
+  },
+  setup() {
+    const sideBarItems = [
+      {
+        id: "1",
+        label: "Главная",
+        icon: "home",
+        path: "/",
+      },
+      {
+        id: "2",
+        label: "Радио",
+        icon: "radio",
+        path: "/radio",
+      },
+      {
+        id: "3",
+        groupName: "library",
+        heading: "Ваша библиотека",
+        children: [
+          {
+            id: 5,
+            label: "Недавно играли",
+            path: "/recently-played",
+            icon: "clock",
+          },
+          {
+            id: 6,
+            label: "Избранное",
+            path: "/favorite",
+            icon: "favorite",
+          },
+        ],
+      },
+    ];
+
+    const carriageElem = ref<HTMLElement | null>(null);
+
+    const carriageHandler = (currentTarget: Element) => {
+      const { top } = currentTarget.getBoundingClientRect();
+      if (carriageElem.value) carriageElem.value.style.top = `${top}px`;
+    };
+
+    return { sideBarItems, carriageElem, carriageHandler };
+  },
 };
 </script>
 
@@ -17,5 +78,22 @@ export default {
   position: relative;
   background: $side-bar-background;
   height: 100vh;
+  .side-bar__logo {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+  }
+  .side-bar__items {
+    margin-top: 30px;
+    .side-bar__carriage {
+      width: 1.5px;
+      height: 35px;
+      background: $green-color;
+      position: absolute;
+      left: 0;
+      transition: 0.7s;
+      z-index: 1;
+    }
+  }
 }
 </style>

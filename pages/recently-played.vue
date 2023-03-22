@@ -1,9 +1,9 @@
 <template>
-  <div>home</div>
+  <div>recently-played</div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "IndexPage",
+  name: "RecentlyPlayed",
 };
 </script>

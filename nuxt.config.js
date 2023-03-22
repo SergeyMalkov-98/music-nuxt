@@ -26,6 +26,7 @@ export default {
     "@/assets/scss/index.scss",
     "@/assets/scss/variables.scss",
     "@/assets/icons.css",
+    "@/assets/ubuntu.css",
   ],
 
   vite: {
@@ -40,7 +41,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 
-  plugins: [],
+  plugins: [{ src: "~/plugins/global-components.js" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
 

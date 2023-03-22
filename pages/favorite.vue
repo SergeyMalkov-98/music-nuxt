@@ -1,9 +1,9 @@
 <template>
-  <div>home</div>
+  <div>favorite</div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "IndexPage",
+  name: "FavoritePage",
 };
 </script>
