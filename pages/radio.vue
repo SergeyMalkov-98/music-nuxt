@@ -1,5 +1,7 @@
 <template>
-  <div>radio</div>
+  <div class="radio-page">
+    <vheading text="Радио" />
+  </div>
 </template>
 
 <script lang="ts">

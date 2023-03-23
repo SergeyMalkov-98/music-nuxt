@@ -1,8 +1,10 @@
 <template>
-  <i :class="`icon-${icon}`" v-bind="$attrs" />
+  <i :class="`icon-${icon}`" v-bind="$attrs" @click="clickHandler" />
 </template>
 
 <script lang="ts">
+import { SetupContext } from "vue";
+
 export default {
   name: "VIcon",
   props: {
@@ -10,6 +12,11 @@ export default {
       type: String,
       default: "",
     },
+  },
+  setup(_props: any, { emit }: SetupContext) {
+    const clickHandler = () => emit("click");
+
+    return { clickHandler };
   },
 };
 </script>

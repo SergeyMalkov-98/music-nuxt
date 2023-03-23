@@ -22,7 +22,7 @@ export default {
     const sideBarItems = [
       {
         id: "1",
-        label: "Главная",
+        label: "Главное",
         icon: "home",
         path: "/",
       },
