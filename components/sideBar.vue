@@ -47,6 +47,7 @@ export default {
 .side-bar {
   overflow: auto;
   max-width: 300px;
+  min-width: 300px;
   position: relative;
   background: $side-bar-background;
   height: 100vh;
@@ -58,12 +59,13 @@ export default {
   &__items {
     margin-top: 30px;
     .side-bar__carriage {
-      width: 1.5px;
+      width: 3px;
       height: 35px;
-      background: $green-color;
+      background: #b9b9b9;
       position: absolute;
       left: 0;
       transition: 0.7s;
+      transition-delay: 0.2s;
       z-index: 1;
     }
   }
