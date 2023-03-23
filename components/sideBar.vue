@@ -50,12 +50,12 @@ export default {
   position: relative;
   background: $side-bar-background;
   height: 100vh;
-  .side-bar__logo {
+  &__logo {
     padding: 25px;
     display: flex;
     align-items: center;
   }
-  .side-bar__items {
+  &__items {
     margin-top: 30px;
     .side-bar__carriage {
       width: 1.5px;

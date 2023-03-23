@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 .side-bar-item-group {
   margin-top: 40px;
-  .side-bar-item-group__heading {
+  &__heading {
     text-transform: uppercase;
     padding: 0 15px;
     margin-bottom: 15px;
@@ -85,13 +85,11 @@ export default {
   height: 35px;
   cursor: pointer;
   margin-bottom: 15px;
-  &:hover {
-  }
-  .side-bar-item__icon {
+  &__icon {
     margin-right: 15px;
     font-size: 16px;
   }
-  .side-bar-item__label {
+  &__label {
     font-size: 13px;
   }
 }
