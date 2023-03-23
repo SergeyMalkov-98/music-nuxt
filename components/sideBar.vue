@@ -9,7 +9,7 @@
         v-for="item in sideBarItems"
         :sideBarItem="item"
         :key="item.id"
-        :carriage-handler="carriageHandler"
+        @carriage-handler="carriageHandler"
       />
     </div>
   </div>
@@ -24,41 +24,13 @@ export default {
   components: {
     SideBarItem,
   },
+  props: {
+    sideBarItems: {
+      type: Array,
+      default: null,
+    },
+  },
   setup() {
-    const sideBarItems = [
-      {
-        id: "1",
-        label: "Главная",
-        icon: "home",
-        path: "/",
-      },
-      {
-        id: "2",
-        label: "Радио",
-        icon: "radio",
-        path: "/radio",
-      },
-      {
-        id: "3",
-        groupName: "library",
-        heading: "Ваша библиотека",
-        children: [
-          {
-            id: 5,
-            label: "Недавно играли",
-            path: "/recently-played",
-            icon: "clock",
-          },
-          {
-            id: 6,
-            label: "Избранное",
-            path: "/favorite",
-            icon: "favorite",
-          },
-        ],
-      },
-    ];
-
     const carriageElem = ref<HTMLElement | null>(null);
 
     const carriageHandler = (currentTarget: Element) => {
@@ -66,7 +38,7 @@ export default {
       if (carriageElem.value) carriageElem.value.style.top = `${top}px`;
     };
 
-    return { sideBarItems, carriageElem, carriageHandler };
+    return { carriageElem, carriageHandler };
   },
 };
 </script>

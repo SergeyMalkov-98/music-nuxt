@@ -5,7 +5,7 @@
       v-for="child in sideBarItem.children"
       :sideBarItem="child"
       :key="child.id"
-      :carriage-handler="carriageHandler"
+      @carriage-handler="handleClick"
     />
   </div>
   <nuxt-link
@@ -21,7 +21,7 @@
         :data-active="isExactActive"
         class="side-bar-item"
         :class="{ 'side-bar-item_active': isExactActive }"
-        @click="carriageHandler($event.currentTarget)"
+        @click="handleClick($event.currentTarget)"
       >
         <vicon
           v-if="sideBarItem.icon"
@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, SetupContext } from "vue";
 
 export default {
   name: "SideBarItem",
@@ -46,21 +46,21 @@ export default {
       type: Object,
       default: null,
     },
-    carriageHandler: {
-      type: Function,
-      default: null,
-    },
   },
-  setup(props) {
+  setup(_props: any, { emit }: SetupContext) {
     const sideBarElement = ref<HTMLElement | null>(null);
 
     onMounted(() => {
       if (sideBarElement.value?.dataset.active) {
-        props.carriageHandler(sideBarElement.value);
+        emit("carriage-handler", sideBarElement.value);
       }
     });
 
-    return { sideBarElement };
+    const handleClick = (currentTarget: Element) => {
+      emit("carriage-handler", currentTarget);
+    };
+
+    return { sideBarElement, handleClick };
   },
 };
 </script>
